@@ -13,8 +13,10 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_carousel_slider: ^1.1.0
+  flutter_svg: ^2.0.1
   get: 4.6.5
   shaky_animated_listview: ^0.0.5
+  youtube_player_flutter: ^8.1.2
 
 dev_dependencies:
   flutter_lints: ^2.0.0
@@ -25,3 +27,4 @@ flutter:
   uses-material-design: true
   assets:
     - assets/images/
+    - assets/icons/
