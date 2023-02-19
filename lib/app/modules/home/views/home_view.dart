@@ -2,7 +2,6 @@ import 'package:floating_bottom_navigation_bar/floating_bottom_navigation_bar.da
 import 'package:flutter/material.dart';
 import 'package:flutter_carousel_slider/carousel_slider.dart';
 import 'package:get/get.dart';
-import 'package:movieku/app/modules/home/views/detail_view.dart';
 import 'package:movieku/app/modules/home/views/test.dart';
 import 'package:shaky_animated_listview/animators/grid_animator.dart';
 
@@ -194,7 +193,7 @@ class HomeView extends GetView<HomeController> {
                                     title: movie.title,
                                     rating: movie.point.toString(),
                                     year: movie.year,
-                                    duration: movie.duration,
+                                    durasi: movie.durasi,
                                     tag: movie.tag,
                                    
                                   ),

@@ -3,7 +3,7 @@ class MovieModel {
   final String title;
   final String desc;
   final String year;
-  final String duration;
+  final String durasi;
   final String tag;
   final double point;
 
@@ -12,7 +12,7 @@ class MovieModel {
     required this.title,
     required this.desc,
     required this.year,
-    required this.duration,
+    required this.durasi,
     required this.tag,
     required this.point,
   });

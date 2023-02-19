@@ -13,7 +13,7 @@ class VideoCOntroller extends GetxController {
         flags: const YoutubePlayerFlags(
           mute: false,
           loop: false,
-          autoPlay: true,
+          autoPlay: false,
         ));
     super.onInit();
   }

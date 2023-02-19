@@ -11,7 +11,7 @@ class NewMovie extends StatelessWidget {
     required this.title,
     required this.rating,
     required this.year,
-    required this.duration,
+    required this.durasi,
     required this.tag,
   });
 
@@ -19,7 +19,7 @@ class NewMovie extends StatelessWidget {
   final String title;
   final String rating;
   final String year;
-  final String duration;
+  final String durasi;
   final String tag;
 
   @override
@@ -32,7 +32,7 @@ class NewMovie extends StatelessWidget {
                 title: title,
                 rating: rating,
                 year: year,
-                duration: duration,
+                durasi: durasi,
                 tag: tag),
             preventDuplicates: false);
       },
@@ -90,7 +90,7 @@ class NewMovie extends StatelessWidget {
                   ),
                   const SizedBox(width: 5),
                   Text(
-                    duration,
+                    durasi,
                     style: const TextStyle(color: Colors.white, fontSize: 10),
                   ),
                   const SizedBox(width: 5),

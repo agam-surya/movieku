@@ -8,7 +8,7 @@ class HomeController extends GetxController {
   List<MovieModel> newMovie = [
     MovieModel(
         year: "2023",
-        duration: "114min",
+        durasi: "114min",
         tag: "movie",
         image: "interstellar.png",
         title: "Interstellar",
@@ -16,7 +16,7 @@ class HomeController extends GetxController {
         point: 8.9),
     MovieModel(
         year: "2023",
-        duration: "114min",
+        durasi: "114min",
         tag: "movie",
         image: "aladin.png",
         title: "Alladin",
@@ -24,7 +24,7 @@ class HomeController extends GetxController {
         point: 8.9),
     MovieModel(
         year: "2023",
-        duration: "114min",
+        durasi: "114min",
         tag: "movie",
         image: "avenger.png",
         title: "Avenger End Game",
@@ -32,7 +32,7 @@ class HomeController extends GetxController {
         point: 8.9),
     MovieModel(
         year: "2023",
-        duration: "114min",
+        durasi: "114min",
         tag: "movie",
         image: "interstellar.png",
         title: "Interstellar",
@@ -40,7 +40,7 @@ class HomeController extends GetxController {
         point: 8.9),
     MovieModel(
         year: "2023",
-        duration: "114min",
+        durasi: "114min",
         tag: "movie",
         image: "aladin.png",
         title: "Alladin",
@@ -48,7 +48,7 @@ class HomeController extends GetxController {
         point: 8.9),
     MovieModel(
         year: "2023",
-        duration: "114min",
+        durasi: "114min",
         tag: "movie",
         image: "avenger.png",
         title: "Avenger End Game",
@@ -56,7 +56,7 @@ class HomeController extends GetxController {
         point: 8.9),
     MovieModel(
         year: "2023",
-        duration: "114min",
+        durasi: "114min",
         tag: "movie",
         image: "interstellar.png",
         title: "Interstellar",
@@ -64,7 +64,7 @@ class HomeController extends GetxController {
         point: 8.9),
     MovieModel(
         year: "2023",
-        duration: "114min",
+        durasi: "114min",
         tag: "movie",
         image: "aladin.png",
         title: "Alladin",
@@ -72,7 +72,7 @@ class HomeController extends GetxController {
         point: 8.9),
     MovieModel(
         year: "2023",
-        duration: "114min",
+        durasi: "114min",
         tag: "movie",
         image: "avenger.png",
         title: "Avenger End Game",
@@ -82,7 +82,7 @@ class HomeController extends GetxController {
   List<MovieModel> tvShow = [
     MovieModel(
         year: "2023",
-        duration: "114min",
+        durasi: "114min",
         tag: "tv show",
         image: "interstellar.png",
         title: "Interstellar",
@@ -90,7 +90,7 @@ class HomeController extends GetxController {
         point: 8.9),
     MovieModel(
         year: "2023",
-        duration: "114min",
+        durasi: "114min",
         tag: "tv show",
         image: "avenger.png",
         title: "Avenger End Game",
@@ -98,7 +98,7 @@ class HomeController extends GetxController {
         point: 8.9),
     MovieModel(
         year: "2023",
-        duration: "114min",
+        durasi: "114min",
         tag: "tv show",
         image: "aladin.png",
         title: "Alladin",
@@ -106,7 +106,7 @@ class HomeController extends GetxController {
         point: 8.9),
     MovieModel(
         year: "2023",
-        duration: "114min",
+        durasi: "114min",
         tag: "tv show",
         image: "interstellar.png",
         title: "Interstellar",
@@ -114,7 +114,7 @@ class HomeController extends GetxController {
         point: 8.9),
     MovieModel(
         year: "2023",
-        duration: "114min",
+        durasi: "114min",
         tag: "tv show",
         image: "avenger.png",
         title: "Avenger End Game",
@@ -122,7 +122,7 @@ class HomeController extends GetxController {
         point: 8.9),
     MovieModel(
         year: "2023",
-        duration: "114min",
+        durasi: "114min",
         tag: "tv show",
         image: "aladin.png",
         title: "Alladin",
@@ -130,7 +130,7 @@ class HomeController extends GetxController {
         point: 8.9),
     MovieModel(
         year: "2023",
-        duration: "114min",
+        durasi: "114min",
         tag: "tv show",
         image: "interstellar.png",
         title: "Interstellar",
@@ -138,7 +138,7 @@ class HomeController extends GetxController {
         point: 8.9),
     MovieModel(
         year: "2023",
-        duration: "114min",
+        durasi: "114min",
         tag: "tv show",
         image: "avenger.png",
         title: "Avenger End Game",
@@ -146,7 +146,7 @@ class HomeController extends GetxController {
         point: 8.9),
     MovieModel(
         year: "2023",
-        duration: "114min",
+        durasi: "114min",
         tag: "tv show",
         image: "aladin.png",
         title: "Alladin",
@@ -156,7 +156,7 @@ class HomeController extends GetxController {
   List<MovieModel> trending = [
     MovieModel(
         year: "2023",
-        duration: "114min",
+        durasi: "114min",
         tag: "trending",
         image: "aladin.png",
         title: "Alladin",
@@ -164,7 +164,7 @@ class HomeController extends GetxController {
         point: 8.9),
     MovieModel(
         year: "2023",
-        duration: "114min",
+        durasi: "114min",
         tag: "trending",
         image: "interstellar.png",
         title: "Interstellar",
@@ -172,7 +172,7 @@ class HomeController extends GetxController {
         point: 8.9),
     MovieModel(
         year: "2023",
-        duration: "114min",
+        durasi: "114min",
         tag: "trending",
         image: "avenger.png",
         title: "Avenger End Game",
@@ -180,7 +180,7 @@ class HomeController extends GetxController {
         point: 8.9),
     MovieModel(
         year: "2023",
-        duration: "114min",
+        durasi: "114min",
         tag: "trending",
         image: "aladin.png",
         title: "Alladin",
@@ -188,7 +188,7 @@ class HomeController extends GetxController {
         point: 8.9),
     MovieModel(
         year: "2023",
-        duration: "114min",
+        durasi: "114min",
         tag: "trending",
         image: "interstellar.png",
         title: "Interstellar",
@@ -196,7 +196,7 @@ class HomeController extends GetxController {
         point: 8.9),
     MovieModel(
         year: "2023",
-        duration: "114min",
+        durasi: "114min",
         tag: "trending",
         image: "avenger.png",
         title: "Avenger End Game",
@@ -204,7 +204,7 @@ class HomeController extends GetxController {
         point: 8.9),
     MovieModel(
         year: "2023",
-        duration: "114min",
+        durasi: "114min",
         tag: "trending",
         image: "aladin.png",
         title: "Alladin",
@@ -212,7 +212,7 @@ class HomeController extends GetxController {
         point: 8.9),
     MovieModel(
         year: "2023",
-        duration: "114min",
+        durasi: "114min",
         tag: "trending",
         image: "avenger.png",
         title: "Avenger End Game",
@@ -220,7 +220,7 @@ class HomeController extends GetxController {
         point: 8.9),
     MovieModel(
         year: "2023",
-        duration: "114min",
+        durasi: "114min",
         tag: "trending",
         image: "interstellar.png",
         title: "Interstellar",
@@ -230,7 +230,7 @@ class HomeController extends GetxController {
   List<MovieModel> relatedMovies = [
     MovieModel(
         year: "2023",
-        duration: "114min",
+        durasi: "114min",
         tag: "trending",
         image: "aladin.png",
         title: "Alladin",
@@ -238,7 +238,7 @@ class HomeController extends GetxController {
         point: 8.9),
     MovieModel(
         year: "2023",
-        duration: "114min",
+        durasi: "114min",
         tag: "trending",
         image: "interstellar.png",
         title: "Interstellar",
@@ -246,7 +246,7 @@ class HomeController extends GetxController {
         point: 8.9),
     MovieModel(
         year: "2023",
-        duration: "114min",
+        durasi: "114min",
         tag: "trending",
         image: "avenger.png",
         title: "Avenger End Game",
@@ -254,7 +254,7 @@ class HomeController extends GetxController {
         point: 8.9),
     MovieModel(
         year: "2023",
-        duration: "114min",
+        durasi: "114min",
         tag: "trending",
         image: "aladin.png",
         title: "Alladin",
@@ -265,7 +265,7 @@ class HomeController extends GetxController {
   List<MovieModel> movieCarrousel = [
     MovieModel(
         year: "2023",
-        duration: "114min",
+        durasi: "114min",
         tag: "movie",
         image: "moana.png",
         title: "Moana",
@@ -274,7 +274,7 @@ class HomeController extends GetxController {
         point: 8.1),
     MovieModel(
         year: "2023",
-        duration: "114min",
+        durasi: "114min",
         tag: "movie",
         image: "moana.png",
         title: "Moana2",
@@ -283,7 +283,7 @@ class HomeController extends GetxController {
         point: 8.4),
     MovieModel(
         year: "2023",
-        duration: "114min",
+        durasi: "114min",
         tag: "movie",
         image: "moana.png",
         title: "Moana3",
@@ -292,7 +292,7 @@ class HomeController extends GetxController {
         point: 8.1),
     MovieModel(
         year: "2023",
-        duration: "114min",
+        durasi: "114min",
         tag: "movie",
         image: "moana.png",
         title: "Moana4",
