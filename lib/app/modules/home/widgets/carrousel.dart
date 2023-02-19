@@ -15,7 +15,7 @@ class CarrouselMovie extends StatelessWidget {
   final String image;
   final String title;
   final String desc;
-  final double point;
+  final String point;
 
   @override
   Widget build(BuildContext context) {
@@ -74,7 +74,7 @@ class CarrouselMovie extends StatelessWidget {
                         backgroundColor: blueColor),
                     onPressed: () {},
                     child: Text(
-                      "$point",
+                      point,
                       style: const TextStyle(
                           color: Colors.black, fontWeight: FontWeight.bold),
                     ))

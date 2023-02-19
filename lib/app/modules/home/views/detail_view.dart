@@ -12,6 +12,7 @@ import '../widgets/dialog.dart';
 import '../widgets/new_movie.dart';
 
 class DetailView extends StatefulWidget {
+  final int id;
   final String image;
   final String title;
   final String rating;
@@ -21,6 +22,7 @@ class DetailView extends StatefulWidget {
 
   DetailView({
     super.key,
+    required this.id,
     required this.image,
     required this.title,
     required this.rating,
@@ -41,6 +43,7 @@ class _DetailViewState extends State<DetailView> {
     super.initState();
     Get.delete<VideoCOntroller>();
     videoCOntroller = Get.put(VideoCOntroller());
+    homeController.getRelatedMovies(id: widget.id);
   }
 
   // late YoutubePlayerController ytcon;
@@ -76,31 +79,30 @@ class _DetailViewState extends State<DetailView> {
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
-                          Row(
-                            children: [
-                              RichText(
-                                text: TextSpan(children: [
-                                  TextSpan(
-                                      text: widget.title,
-                                      style: const TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 30,
-                                          fontWeight: FontWeight.bold)),
-                                  WidgetSpan(
-                                    child: Transform.translate(
-                                      offset: const Offset(2, -12),
-                                      child: const Text(
-                                        'HD',
-                                        //superscript is usual
-                                        style: TextStyle(
-                                            color: blueColor,
-                                            fontWeight: FontWeight.bold),
-                                      ),
+                          FittedBox(
+                            child: RichText(
+                              overflow: TextOverflow.ellipsis,
+                              text: TextSpan(children: [
+                                TextSpan(
+                                    text: widget.title,
+                                    style: const TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 30,
+                                        fontWeight: FontWeight.bold)),
+                                WidgetSpan(
+                                  child: Transform.translate(
+                                    offset: const Offset(2, -12),
+                                    child: const Text(
+                                      'HD',
+                                      //superscript is usual
+                                      style: TextStyle(
+                                          color: blueColor,
+                                          fontWeight: FontWeight.bold),
                                     ),
-                                  )
-                                ]),
-                              )
-                            ],
+                                  ),
+                                )
+                              ]),
+                            ),
                           ),
                           Row(
                             children: [
@@ -145,42 +147,40 @@ class _DetailViewState extends State<DetailView> {
                                                 crossAxisAlignment:
                                                     CrossAxisAlignment.start,
                                                 children: [
-                                                  Row(
-                                                    children: [
-                                                      RichText(
-                                                        text:
-                                                            TextSpan(children: [
-                                                          TextSpan(
-                                                              text:
-                                                                  widget.title,
-                                                              style: const TextStyle(
-                                                                  color: Colors
-                                                                      .white,
-                                                                  fontSize: 30,
+                                                  FittedBox(
+                                                    child: RichText(
+                                                      overflow:
+                                                          TextOverflow.ellipsis,
+                                                      text: TextSpan(children: [
+                                                        TextSpan(
+                                                            text: widget.title,
+                                                            style: const TextStyle(
+                                                                color: Colors
+                                                                    .white,
+                                                                fontSize: 30,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .bold)),
+                                                        WidgetSpan(
+                                                          child: Transform
+                                                              .translate(
+                                                            offset:
+                                                                const Offset(
+                                                                    2, -12),
+                                                            child: const Text(
+                                                              'HD',
+                                                              //superscript is usual
+                                                              style: TextStyle(
+                                                                  color:
+                                                                      blueColor,
                                                                   fontWeight:
                                                                       FontWeight
-                                                                          .bold)),
-                                                          WidgetSpan(
-                                                            child: Transform
-                                                                .translate(
-                                                              offset:
-                                                                  const Offset(
-                                                                      2, -12),
-                                                              child: const Text(
-                                                                'HD',
-                                                                //superscript is usual
-                                                                style: TextStyle(
-                                                                    color:
-                                                                        blueColor,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .bold),
-                                                              ),
+                                                                          .bold),
                                                             ),
-                                                          )
-                                                        ]),
-                                                      )
-                                                    ],
+                                                          ),
+                                                        )
+                                                      ]),
+                                                    ),
                                                   ),
                                                   Container(
                                                     height: 40,
@@ -401,6 +401,7 @@ class _DetailViewState extends State<DetailView> {
                             child: AspectRatio(
                               aspectRatio: 4 / 7,
                               child: NewMovie(
+                                id: movie.id,
                                 image: movie.image,
                                 title: movie.title,
                                 rating: movie.point.toString(),

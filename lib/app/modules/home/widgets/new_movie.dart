@@ -7,6 +7,7 @@ import '../../../utils/color.dart';
 class NewMovie extends StatelessWidget {
   const NewMovie({
     super.key,
+    required this.id,
     required this.image,
     required this.title,
     required this.rating,
@@ -15,6 +16,7 @@ class NewMovie extends StatelessWidget {
     required this.tag,
   });
 
+  final int id;
   final String image;
   final String title;
   final String rating;
@@ -28,6 +30,7 @@ class NewMovie extends StatelessWidget {
       onTap: () {
         Get.to(
             () => DetailView(
+              id: id,
                 image: image,
                 title: title,
                 rating: rating,
@@ -47,8 +50,8 @@ class NewMovie extends StatelessWidget {
                   top: 0,
                   right: 5,
                   left: 0,
-                  child: Image.asset(
-                    "assets/images/$image",
+                  child: Image.network(
+                    "$image",
                     fit: BoxFit.cover,
                   ),
                 ),

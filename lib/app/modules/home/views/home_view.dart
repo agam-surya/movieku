@@ -189,6 +189,7 @@ class HomeView extends GetView<HomeController> {
                                 var movie = homeController.movies[index];
                                 return GridAnimatorWidget(
                                   child: NewMovie(
+                                    id: movie.id,
                                     image: movie.image,
                                     title: movie.title,
                                     rating: movie.point.toString(),
