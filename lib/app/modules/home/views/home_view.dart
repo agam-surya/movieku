@@ -95,16 +95,6 @@ class HomeView extends GetView<HomeController> {
                       const SizedBox(
                         height: 20,
                       ),
-                      const SizedBox(
-                        height: 60,
-                        child: Text(
-                          "Watch TV Shows Online Free watch tv shows online,watch tv shows online on Movieku, watch tv shows online free in high quality, free watch tv shows online",
-                          style: TextStyle(color: Colors.white70, height: 1.5),
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 30,
-                      ),
                       Container(
                         width: Get.width,
                         height: 50,
@@ -195,6 +185,7 @@ class HomeView extends GetView<HomeController> {
                                     rating: movie.point.toString(),
                                     year: movie.year,
                                     durasi: movie.durasi,
+                                    desc: movie.desc,
                                     tag: movie.tag,
                                    
                                   ),

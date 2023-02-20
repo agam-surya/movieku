@@ -7,8 +7,8 @@ class HomeController extends GetxController {
   var id = 0;
   var movieCategory = 0.obs;
   var movies = List.empty(growable: true).obs;
+  var newMovies = List.empty(growable: true).obs;
   var trending = List.empty(growable: true).obs;
-  var relatedMovies = List.empty(growable: true).obs;
   final String apikey = "c33de0ec803d2fb2d69777cc18e2b5be&language";
 
   HomeController({this.id = 505642});
@@ -61,7 +61,8 @@ class HomeController extends GetxController {
   void onInit() async {
     await getMovies();
     await getTrending();
-    await getRelatedMovies(id: id);
+
+    movies.value = newMovies;
     super.onInit();
   }
 
@@ -83,7 +84,7 @@ class HomeController extends GetxController {
     movieCategory.value = index;
     switch (index) {
       case 0:
-        movies.value;
+        movies.value = newMovies;
         break;
       case 1:
         movies.value;
@@ -92,7 +93,7 @@ class HomeController extends GetxController {
         movies.value = trending;
         break;
       default:
-        movies.value;
+        movies.value = newMovies;
     }
   }
 
@@ -102,7 +103,7 @@ class HomeController extends GetxController {
           "https://api.themoviedb.org/3/movie/popular?api_key=$apikey=en-US&page=1");
 
       if (response.statusCode == 200) {
-        movies.value = (response.data['results'] as List).map((e) {
+        newMovies.value = (response.data['results'] as List).map((e) {
           String tahun =
               e["release_date"].toString().substring(0, 4).toString();
 
@@ -129,37 +130,6 @@ class HomeController extends GetxController {
 
       if (response.statusCode == 200) {
         trending.value = (response.data['results'] as List).map((e) {
-          if (e["poster_path"] != null) {
-            String tahun =
-                e["release_date"].toString().substring(0, 4).toString();
-            return MovieModel(
-                id: e['id'],
-                image:
-                    "https://image.tmdb.org/t/p/original/${e["poster_path"]}",
-                title: e["title"] != null
-                    ? e['title']
-                    : (e['original_name'] != null)
-                        ? e['original_name']
-                        : e['original_title'],
-                desc: e["overview"],
-                year: tahun,
-                durasi: "100min",
-                tag: "Trending",
-                point: e["vote_average"].toString().substring(0, 3));
-          }
-        }).toList();
-      }
-    } catch (e) {
-      throw Exception(e.toString());
-    }
-  }
-
-  Future getRelatedMovies({required int id}) async {
-    try {
-      var response = await Dio().get(
-          "https://api.themoviedb.org/3/movie/$id/similar?api_key=$apikey&language=en-US&page=1");
-      if (response.statusCode == 200) {
-        relatedMovies.value = (response.data['results'] as List).map((e) {
           if (e["poster_path"] != null) {
             String tahun =
                 e["release_date"].toString().substring(0, 4).toString();

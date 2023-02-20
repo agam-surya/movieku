@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:movieku/app/modules/home/controllers/video_controller.dart';
+import 'package:movieku/app/modules/home/controllers/detail_controller.dart';
+import 'package:movieku/app/modules/home/models/movie_model.dart';
 import 'package:movieku/app/routes/app_pages.dart';
 import 'package:movieku/app/utils/color.dart';
 import 'package:shaky_animated_listview/animators/grid_animator.dart';
@@ -18,6 +19,7 @@ class DetailView extends StatefulWidget {
   final String rating;
   final String year;
   final String durasi;
+  final String desc;
   final String tag;
 
   DetailView({
@@ -28,6 +30,7 @@ class DetailView extends StatefulWidget {
     required this.rating,
     required this.year,
     required this.durasi,
+    required this.desc,
     required this.tag,
   });
 
@@ -36,14 +39,13 @@ class DetailView extends StatefulWidget {
 }
 
 class _DetailViewState extends State<DetailView> {
-  VideoCOntroller videoCOntroller = Get.put(VideoCOntroller());
+  late DetailCOntroller detailCOntroller;
   HomeController homeController = Get.put(HomeController());
   @override
   void initState() {
+    Get.delete<DetailCOntroller>();
+    detailCOntroller = Get.put(DetailCOntroller());
     super.initState();
-    Get.delete<VideoCOntroller>();
-    videoCOntroller = Get.put(VideoCOntroller());
-    homeController.getRelatedMovies(id: widget.id);
   }
 
   // late YoutubePlayerController ytcon;
@@ -59,7 +61,7 @@ class _DetailViewState extends State<DetailView> {
       child: Obx(
         () => YoutubePlayerBuilder(
           player: YoutubePlayer(
-            controller: videoCOntroller.ytcon.value,
+            controller: detailCOntroller.ytcon.value,
             liveUIColor: blueColor,
           ),
           builder: (context, player) => Scaffold(
@@ -78,6 +80,7 @@ class _DetailViewState extends State<DetailView> {
                       height: 100,
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           FittedBox(
                             child: RichText(
@@ -148,6 +151,8 @@ class _DetailViewState extends State<DetailView> {
                                                     CrossAxisAlignment.start,
                                                 children: [
                                                   FittedBox(
+                                                    alignment:
+                                                        Alignment.centerLeft,
                                                     child: RichText(
                                                       overflow:
                                                           TextOverflow.ellipsis,
@@ -266,8 +271,8 @@ class _DetailViewState extends State<DetailView> {
                                                 child: Column(
                                               crossAxisAlignment:
                                                   CrossAxisAlignment.start,
-                                              children: const [
-                                                Text(
+                                              children: [
+                                                const Text(
                                                   "Sinopsis",
                                                   style: TextStyle(
                                                       fontSize: 24,
@@ -277,8 +282,8 @@ class _DetailViewState extends State<DetailView> {
                                                 ),
                                                 Expanded(
                                                   child: Text(
-                                                    "Antar bintang mencatat petualangan sekelompok penjelajah yang memanfaatkan lubang cacing yang baru ditemukan untuk melampaui batasan perjalanan ruang angkasa manusia dan menaklukkan jarak yang luas yang terlibat dalam pelayaran antarbintang.",
-                                                    style: TextStyle(
+                                                    widget.desc,
+                                                    style: const TextStyle(
                                                         fontSize: 14,
                                                         height: 1.5,
                                                         color: blueColor),
@@ -327,9 +332,10 @@ class _DetailViewState extends State<DetailView> {
                         TextButton(
                           onPressed: () {},
                           child: const Text(
-                            "resolusi",
+                            "1080p",
                             style: TextStyle(
                                 color: Colors.white,
+                                fontSize: 16,
                                 fontWeight: FontWeight.bold),
                           ),
                         ),
@@ -364,13 +370,17 @@ class _DetailViewState extends State<DetailView> {
                       ],
                     ),
                   ),
-                  const Padding(
-                    padding: EdgeInsets.symmetric(vertical: 30, horizontal: 15),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                        vertical: 30, horizontal: 15),
                     child: SizedBox(
                       height: 60,
                       child: Text(
-                        "Watch TV Shows Online Free watch tv shows online,watch tv shows online on Movieku, watch tv shows online free in high quality, free watch tv shows online",
-                        style: TextStyle(color: Colors.white70, height: 1.5),
+                        widget.desc,
+                        overflow: TextOverflow.ellipsis,
+                        maxLines: 3,
+                        style:
+                            const TextStyle(color: Colors.white70, height: 1.5),
                       ),
                     ),
                   ),
@@ -391,27 +401,40 @@ class _DetailViewState extends State<DetailView> {
                     ),
                   ),
                   Expanded(
-                    child: ListView.builder(
-                        scrollDirection: Axis.horizontal,
-                        padding: const EdgeInsets.symmetric(horizontal: 10),
-                        itemCount: homeController.relatedMovies.length,
-                        itemBuilder: (BuildContext ctx, index) {
-                          var movie = homeController.relatedMovies[index];
-                          return GridAnimatorWidget(
-                            child: AspectRatio(
-                              aspectRatio: 4 / 7,
-                              child: NewMovie(
-                                id: movie.id,
-                                image: movie.image,
-                                title: movie.title,
-                                rating: movie.point.toString(),
-                                year: movie.year,
-                                durasi: movie.durasi,
-                                tag: movie.tag,
-                              ),
-                            ),
+                    child: FutureBuilder(
+                      future: detailCOntroller.getRelatedMovies(id: widget.id),
+                      builder: (context, snapshot) {
+                        if (!snapshot.hasData) {
+                          return const Center(
+                            child: CircularProgressIndicator(),
                           );
-                        }),
+                        } else {
+                          return ListView.builder(
+                              scrollDirection: Axis.horizontal,
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 10),
+                              itemCount: snapshot.data.length,
+                              itemBuilder: (BuildContext ctx, index) {
+                                MovieModel movie = snapshot.data[index];
+                                return GridAnimatorWidget(
+                                  child: AspectRatio(
+                                    aspectRatio: 4 / 7,
+                                    child: NewMovie(
+                                      id: movie.id,
+                                      image: movie.image,
+                                      title: movie.title,
+                                      rating: movie.point.toString(),
+                                      year: movie.year,
+                                      durasi: movie.durasi,
+                                      desc: movie.desc,
+                                      tag: movie.tag,
+                                    ),
+                                  ),
+                                );
+                              });
+                        }
+                      },
+                    ),
                   ),
                 ],
               ),

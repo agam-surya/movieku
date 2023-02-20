@@ -13,6 +13,7 @@ class NewMovie extends StatelessWidget {
     required this.rating,
     required this.year,
     required this.durasi,
+    required this.desc,
     required this.tag,
   });
 
@@ -22,6 +23,7 @@ class NewMovie extends StatelessWidget {
   final String rating;
   final String year;
   final String durasi;
+  final String desc;
   final String tag;
 
   @override
@@ -36,6 +38,7 @@ class NewMovie extends StatelessWidget {
                 rating: rating,
                 year: year,
                 durasi: durasi,
+                desc: desc,
                 tag: tag),
             preventDuplicates: false);
       },
